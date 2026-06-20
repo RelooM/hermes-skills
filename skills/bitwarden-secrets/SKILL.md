@@ -38,13 +38,7 @@ hermes secrets bitwarden setup \
   --project-id <project-uuid>
 ```
 
-### Binary Detection
-
-The skill automatically detects `bws` in this order:
-1. `$HERMES_HOME/bin/bws` (Hermes-managed)
-2. `$HOME/bin/bws` (user-local)
-
-Detect path without modifying PATH:
+### Binary Detection\n\nThe skill automatically detects `bws` in this order:\n1. `$HERMES_HOME/bin/bws` (Hermes-managed)\n2. `$HOME/bin/bws` (user-local)\n\n### New Configuration Option\n\n| Variable               | Default | Description                                                                                                                                       |\n|------------------------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------|\n| `BITWARDEN_SESSION_ONLY` | `False` | Store secrets in-memory for the session only. Set to `True` via .env or config.yaml.                                                                |\n\nDetect path without modifying PATH:
 ```bash
 BWS_BIN="${BWS_BIN:-$(command -v bws 2>/dev/null || echo \"${HERMES_HOME:-$HOME/.hermes}/bin/bws\")}"
 ```
